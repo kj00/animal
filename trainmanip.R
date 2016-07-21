@@ -1,7 +1,5 @@
 ##
 library(data.table)
-library(ggplot2)
-library(MASS)
 library(magrittr)
 
 ##
@@ -45,10 +43,12 @@ hist(train[, .N, by = Breed][, N], breaks = 1000, xlim = c(0, 100)) #before sepa
 hist(train[, .N, by = breed1][, N], breaks = 1000, xlim = c(0, 100), ylim = c(0, 1200)) #after separating
 
 hist(train[, .N, by = Color][, N], breaks = 1000, xlim = c(0, 100)) #before separating
-hist(train[, .N, by = color2][, N], breaks = 1000, xlim = c(0, 100), ylim = c(0, 10)) #after separating
+hist(train[, .N, by = color1][, N], breaks = 1000, xlim = c(0, 100), ylim = c(0, 10)) #after separating
 
-
+hist(train[, .N, by = Name][, N], breaks = 1000, xlim = c(0, 200))
 ##
+
+
 byplot(dt = train, outcome = "OutcomeType", byval = "AnimalType",inv = T, position = "fill")
 byplot(dt = train, outcome = "OutcomeType", byval = "bmixed", inv = T, position = "dodge")
 byplot(dt = train, outcome = "OutcomeType", byval = "cmixed", inv = F, position = "dodge")
